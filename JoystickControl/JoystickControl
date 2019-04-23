@@ -1,0 +1,24 @@
+
+#include "def.h"
+
+
+
+
+
+
+
+void setup() { 
+ 
+Motions.init();
+ 
+
+}
+
+
+void loop() 
+ {
+  Motions.joy();
+    }
+
+
+

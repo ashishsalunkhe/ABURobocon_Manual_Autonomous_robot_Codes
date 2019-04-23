@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel = "stylesheet"   type = "text/css"  href = "style.css" />
+</head>
+
+
+<body>
+
+<div class="login">
+<form action="" name="myform" onsubmit="loadDoc()" method="post">
+ 
+    <label><b>Username</b></label>
+   <input type="text" name="username" id="username" placeholder= "Username" required="required" onfocus="this.value = '';">
+    <label><b>Password</b></label>
+    <input type="password" name="password" id="password" placeholder="password" required="required" onfocus="this.value = '';">        
+    <input type="submit" value="Login">   
+	<a href="register.html"> Register Yourself</a>
+</form>
+</div>
+
+
+
+
+
+
+<script>
+function loadDoc() 
+{
+//document.write("2");
+  var xhttp = new XMLHttpRequest();
+  
+  xhttp.onreadystatechange = function() 
+  {
+    if (this.readyState == 4 && this.status == 200) 
+	{
+      myFunction(this);
+    }
+  };
+  xhttp.open("GET", "database.xml", true);
+  xhttp.send();
+}
+function myFunction(xml) 
+{
+//document.write("1");
+  var i;
+  var flag=0;
+  var xmlDoc = xml.responseXML;
+  var username = document.getElementById("username").value;
+  var userpass = document.getElementById("password").value;
+  //document.write("Username "+username+"  password "+userpass+"  ");
+  
+  var x = xmlDoc.getElementsByTagName("account");
+ // document.write(x.length);
+  for (i = 0; i <x.length; i++) 
+  {     
+    var name=x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue;    
+    var pass=x[i].getElementsByTagName("pass")[0].childNodes[0].nodeValue;
+	
+	document.write("<br>"+name+" "+pass+" ");
+	if(username.localeCompare(name))
+	{
+		
+	}
+	else
+	{
+		flag=1;
+	}	
+  } 
+
+if(flag==1)  
+{
+	window.location="home.html";
+}
+else
+{
+	document.write("  <a href=\"login.html\"> Login again </a> Username password wrong...."); 
+}
+}
+</script>
+
+</body>
+</html>

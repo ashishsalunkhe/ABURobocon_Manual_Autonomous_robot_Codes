@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel = "stylesheet"   type = "text/css"  href = "style.css" />
+<script type="text/javascript">
+	function validateform()
+	{
+		
+		var pass=document.myform.password.value;  
+		if(pass.length<4)
+		{  
+			alert("Enter Password At Least 4 Charactor");  
+			return false;  
+		}
+		
+		var mobile=document.myform.mobile.value;  
+		if(isNaN(mobile))
+		{  
+			alert("Enter Digit Only in Mobile Number");  
+			return false;  
+		}
+	
+		else if (mobile.length<10||mobile.length>10)
+		{  
+			alert("Enter Mobile Number 10 Digit Only");  
+			return false;  
+		}
+		var email = document.myform.email.value;
+		var atpos = email.indexOf("@");
+		var dotpos = email.lastIndexOf(".");
+		if (atpos<1 || dotpos<atpos+2 || dotpos+2>=email.length) 
+		{
+			alert("Not a valid e-mail address");
+			return false;
+		}
+		var age=document.myform.age.value;  
+		if(isNaN(age))
+		{  
+			alert("Enter Digit Only in Age");  
+			return false;  
+		}
+		return true;
+	}	
+</script>
+</head>
+
+<body>
+<div class="register">
+<form action="addentry.php" name="myform" onsubmit="return validateform()" method="post"> 
+    <label><b>Username</b></label>
+   <input type="text" name="username" id="username" placeholder= "Username" required="required" onfocus="this.value = '';">
+    <label><b>Password</b></label>
+    <input type="password" name="password" id="password" placeholder="password" required="required" onfocus="this.value = '';">     
+ <label><b>Mobile Number</b></label>
+   <input type="text" name="mobile" id="mobile" placeholder= "Mobile Number" required="required" onfocus="this.value = '';">
+<label><b>E-Mail Address</b></label>
+   <input type="text" name="email" id="email" placeholder= "E-Mail Address" required="required" onfocus="this.value = '';"> 
+<label><b>Age</b></label>
+   <input type="text" name="age" id="age" placeholder= "Age" required="required" onfocus="this.value = '';">    
+   
+    <input type="submit" value="Register">   
+	
+</form>
+
+
+</body>
+</html>

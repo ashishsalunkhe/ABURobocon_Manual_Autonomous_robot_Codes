@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<users>
+  <profile>
+    <account>
+      <name>nilesh</name>
+      <pass>nilesh</pass>
+      <email>nil</email>
+      <mobile>89898989898</mobile>
+      <age>nil</age>
+    </account>
+    <account>
+      <name>aq</name>
+      <pass>aq</pass>
+      <email>aq</email>
+      <mobile>aq</mobile>
+      <age>aq</age>
+    </account>
+    <account>
+      <name>nn</name>
+      <pass>nn</pass>
+      <email>nn</email>
+      <mobile>nn</mobile>
+      <age>nn</age>
+    </account>
+  </profile>
+</users>
